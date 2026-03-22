@@ -1,0 +1,19 @@
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        ListNode *dummy = new ListNode(-2147483648), *nowSee = head, *current,
+                 *buffer;
+        while (nowSee) {
+            current = dummy;
+            buffer = current->next;
+            while (buffer && buffer->val < nowSee->val) {
+                current = buffer;
+                buffer = buffer->next;
+            }
+            current->next = nowSee;
+            nowSee = nowSee->next;
+            current->next->next = buffer;
+        }
+        return dummy->next;
+    }
+};
