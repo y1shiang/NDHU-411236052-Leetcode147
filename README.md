@@ -5,4 +5,4 @@
 ![LeetCode 截圖](Leetcode147_screenshot.png)
 
 ### LeetCode912 執行結果
-![LeetCode 截圖](Leetcode147_screenshot.png)
+![LeetCode 截圖](Leetcode912_screenshot.png)
