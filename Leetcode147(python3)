@@ -1,0 +1,24 @@
+cclass Solution(object):
+    def insertionSortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head or not head.next:
+            return head
+        
+        dummy=ListNode(float('-inf'))
+        dummy.next=head
+        
+        while head.next:
+            if head.val<=head.next.val:
+                head=head.next
+            else:
+                pre=dummy
+                cur=head.next
+                while pre.next and cur.val>pre.next.val:
+                    pre=pre.next
+                head.next=head.next.next
+                cur.next=pre.next
+                pre.next=cur
+        return dummy.next
