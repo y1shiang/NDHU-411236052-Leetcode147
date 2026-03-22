@@ -1,0 +1,39 @@
+from typing import List
+
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        
+        def mergeSort(left, right):
+
+            if left >= right:
+
+                return
+            
+            mid = left + (right - left) // 2
+            mergeSort( left , mid  )
+            mergeSort( mid+1, right)
+
+            a, b = left, mid+1
+            merging = []
+            
+            while a <= mid and b <= right:
+                if nums[a] < nums[b]:
+                    merging.append( nums[a] )
+                    a += 1
+                else:
+                    merging.append( nums[b] )
+                    b += 1
+
+            while a <= mid:
+                merging.append( nums[a] )
+                a += 1
+
+            while b <= right:
+                merging.append( nums[b] )
+                b += 1
+
+            nums[left : right+1] = merging
+
+        mergeSort(0, len(nums) - 1)
+        
+        return nums
